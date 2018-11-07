@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+   <canvas id="canvas" height="500" width="800"></canvas>
+</body>
+<script src="../js/until.js"></script>
+<script>
+    let canvas=document.querySelector("#canvas");
+    canvas.style.background="#f1f1f1";
+    let ctx=canvas.getContext("2d");
+    // /**创建一个渐变色出来*/
+    // let grd=ctx.createLinearGradient(0,100,800,100) //创建一个渐变的对象
+    // grd.addColorStop(0,"#ff0");  //添加渐变的开始颜色 第一个参数渐变到那个阶段
+    // grd.addColorStop(1,"#f00");  //添加渐变的结束颜色
+    //
+    // /**画出来一个线*/
+    // ctx.moveTo(0,50);
+    // ctx.lineTo(800,50);// 定义渐变的宽度
+    // ctx.lineWidth=100;
+    // ctx.strokeStyle=grd;
+    // ctx.stroke();
+    //
+    // ctx.beginPath();
+    // ctx.moveTo(0,150);
+    // ctx.lineTo(600,150);
+    // ctx.strokeStyle="#f00";
+    // ctx.lineWidth=100;
+    // ctx.stroke();
+
+    /**径向渐变*/
+    let color=ctx.createRadialGradient(300,300,0,300,300,100);
+    color.addColorStop(0,"#fff");
+    color.addColorStop(1,"#f00");
+
+    ctx.beginPath();
+    ctx.arc(300,300,100,getRad(0),getRad(360),true);
+    ctx.fillStyle=color;
+    ctx.fill();
+    ctx.stroke();
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="500"></canvas>
+</body>
+<script src="../js/until.js"></script>
+<script>
+    let canvas=document.querySelector("canvas");
+    canvas.style.background="#f1f1f1";
+    let ctx=canvas.getContext("2d");
+    let color=ctx.createRadialGradient(50,50,0,50,50,25);
+    color.addColorStop(0,"#fff");
+    color.addColorStop(1,"#f00");
+    let x=0;
+    let y=0;
+    let temp=5;
+
+    // setInterval(function(){
+    //        ctx.clearRect(0,0,canvas.width,canvas.height);
+    //        ctx.beginPath();
+    //        ctx.fillStyle="deepskyblue";
+    //     ctx.fillRect(x,y,50,100);
+    // },1000/20)
+    requestAnimationFrame(go)/**会根据自己浏览器的性能实现*/
+    function go()
+    {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.beginPath();
+        ctx.fillStyle="deepskyblue";
+        x=x+temp;
+        ctx.fillRect(x,y,50,100);
+        requestAnimationFrame(go);
+        if(x>=750||x<0)
+        {
+            temp=-temp;
+        }
+
+    }
+</script>
+</html>

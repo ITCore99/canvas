@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script defer="defer"></script>
+    <style>
+        #box
+        {
+            width:100px;
+            height:100px;
+            border: 1px solid #f1f1f1;
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+  <!--<button  id="btn">确认关闭窗口</button>-->
+  <!--<form id="forms" onsubmit="return false">-->
+      <!--<input type="radio" index="1" value="红" name="color"/>红-->
+      <!--<input  type="radio" index="2" value="绿" name="color"/>绿-->
+      <!--<input type="radio" index="3" value="蓝" name="color"/>蓝-->
+      <!--<input type="radio" index="4" value="粉" name="color"/>粉-->
+      <!--<input type="submit" value="提交" id="submit">-->
+  <!--</form>-->
+  <!--<select id="sel">-->
+      <!--<option value="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541216622562&di=d922f77d49a700d7f2d05be046be0c3e&imgtype=0&src=http%3A%2F%2Fpic28.photophoto.cn%2F20130928%2F0008020926040930_b.jpg">城市生活</option>-->
+      <!--<option value="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541216667858&di=bcae9cbfd7c6e088096a44f22b70ec73&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3De9ab9ab022381f308a1485eac168267d%2Fe824b899a9014c081982802d007b02087af4f4f9.jpg">都市早报</option>-->
+      <!--<option value="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541216709126&di=d15eb50ad338476fe3038c2f3a401732&imgtype=0&src=http%3A%2F%2Fimg8.zol.com.cn%2Fbbs%2Fupload%2F23549%2F23548798.JPG">青山绿水</option>-->
+  <!--</select>-->
+  <!--<img id="img" style="width:200px; height:200px;vertical-align: middle " src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1541216622562&di=d922f77d49a700d7f2d05be046be0c3e&imgtype=0&src=http%3A%2F%2Fpic28.photophoto.cn%2F20130928%2F0008020926040930_b.jpg"/>-->
+  <!--<input type="button" value="点击点三下" id="btn"/>-->
+  <div id="box">
+      我是一个div
+  </div>
+</body>
+<script>
+    // var p=new RegExp("a");/**通过new的方式来进行创建正则表达式*/
+    // let q=/b/;        /**通过new的方式来进行创建一个正则表达式*/
+    // console.log(p,q);
+    // let str="hello";
+    // let e=/e/;
+    // console.log(e.test(str));/**验证str中是否有e*/
+    // let reg=/a/i;/**模式修饰符是写在坐后面的/ i ignore忽视大小写 g global 全局匹配 m mutilate 是多行匹配*/
+    // console.log(reg.test("ABC"));
+    /**只能表示一个字符的原子*/
+    // let p=/1/
+    // let h=/a/
+    // let k=/_/
+    /**能表示一类的原子*/
+    // let gg=/\d/;/**\d表示十进制数0-9只要包含了数字就为true*/
+    // console.log(gg.test("123456789abc"));
+    // console.log(gg.test("aaa"));
+    // let GG=/\D/; /**\D表示非数字，只要包含非数字就为true*/
+    // console.log(GG.test("123456789abc"));
+    // console.log(GG.test("12233"));
+    // var p=/\s/;/**\s表示空白字符（空格，回车，tab）键只要是包含了空白字符就为true*/
+    // var str="abc ";
+    // console.log(p.test(str));
+    // var P=/\S/;/**\S表示非空白字符只要包含非空白字符就为true*/
+    // console.log(P.test(str));
+    // console.log(P.test("    "));
+    // var p=/\w/; /**\w表示一个字 0-9 a-z A-Z _*/
+    // var str="_";
+    // console.log(p.test(str));
+    // var P=/\W/ /***\W表示一个字在0-9 a-z A-Z _之外*/
+    // console.log(P.test("123456"));
+    // var p=/^\d/;/**元字符^号表示以什么开头*/
+    // console.log(p.test("123456"));
+    // console.log(p.test("abc123456"));
+    // var reg=/^0/;
+    // var str="0101";
+    // var s=reg.test(str) ? "是正确的电话" : "不是正确的电话";
+    // console.log(s)
+    // var p=/a$/;/**元字符$表示以什么结束，一般放到元素的后面*/
+    // console.log(p.test("assd"));
+    // console.log(p.test("dsa"));
+    // let p=/^\d\d$/;/**这个正则表达式表示的是两个原子的以数字开头和以数字结束*/
+    // console.log(p.test("123"));
+    // console.log(p.test("12"));
+    // let p=/^\d\d\d\d\d\d\d\d\d\d\d$/;/**这个正则表达式表示原子数为11且是以数字开头和结尾的*/
+    // console.log(p.test("12345678901"));
+    // console.log(p.test("123456789012"));
+    // var p=/^jt/;/**表示字符串必须是以j开头之后紧挨着是t*/
+    // console.log(p.test("javascript"));
+    // console.log(p.test("jt8"));
+    // var p=/\d{3}/;/**表示数字必须出现三次数量有关的元字符{m}表示前面的原子必须出现m次*/;
+    // console.log(p.test("123"));
+    // console.log(p.test("adasdsd456dsfsdffdskkv"));
+    // var p=/\d{3,5}$/;/**注意这如果要限制个数就必须要以$结束*/
+    // console.log(p.test("12"));
+    // console.log(p.test("123"));
+    // console.log(p.test("1234"));
+    // console.log(p.test("12345"));
+    // console.log(p.test("123456"));
+    // var p=/a\d{2}$/;
+    // console.log(p.test("a12"));
+    // console.log(p.test("da12"));
+    // console.log(p.test("a123"));
+    // var q=/a\d{2,5}$/;
+    // console.log(q.test("a12"));
+    // console.log(q.test("da12"));
+    // console.log(q.test("a123"));
+    // /**检测是否是生日字符串*/
+    // let p=/^\d{4}-\d{1,2}-\d{1,2}$/;
+    // console.log(p.test("1997-04-23"));
+    // let p=/\d*/;/**元字符*号表示前面的原子可以出现0次或多次，类似于{0，}*/
+    // console.log(p.test("你的生日1997-04-23"));
+    // let q=/\d+/;/**元字符+号表示前面的原子至少出现一次，类似于{1,}*/
+    // console.log(q.test("你的生日是某年某月1日"));
+    // let t=/生\d?/;/**元字符？表示前面的原子至少至少出现0次或1次*/
+    // console.log(t.test("你的生日是12345日是日1"));
+    // let p=/[ab]/;/**逻辑相关的元字符，表示多个原子，只要有一个原子在目标字符串中出现就行*/
+    // console.log(p.test("a"));
+    // console.log(p.test("b"));
+    // console.log(p.test("ab"));
+    // console.log(p.test("abc"));
+    // console.log(p.test("de"));
+    // let p=/[^ab]/;/**在逻辑运算符中^表示去反，字符串中不只包含的里面所包含的原子**/
+    // console.log(p.test("a"));
+    // console.log(p.test("b"));
+    // console.log(p.test("ab"));
+    // console.log(p.test("abc"));
+    // console.log(p.test("de"));
+    // let p=/[0-4]/;/**只要包含一个就可以了*/
+    // console.log(p.test("1"));
+    // console.log(p.test("5"));
+    // console.log(p.test("45"));
+    // let p=/cat|dog/这个正则表达式的作用是两个单词中必须出现一个
+    // console.log(p.test("catdog"));
+    // console.log(p.test("dog|dog"));
+    // console.log(p.test("docat"));
+    // console.log(p.test("catdo"));
+    // let p=/\$/;//当我们要将元字符当做普通的原子使用时我们就要用转义字符。
+    // let p=/abc+/;/***这个正则表达式是组合的表达式表示后面的C至少出现一次。*/
+    // console.log(p.test("abccccc"));
+    // console.log(p.test("ab"));
+    // let p=/[(ac)(de)]/;/**注意这里的是在正则表达式中{}是有特殊含义的要当做普通原子就要使用转义字符**/
+    // console.log(p.test("()"));
+    // let q=/[(ab)(cd)\[]/;
+    // console.log(q.test("["));
+    // let p=/^1[3-8]\d{9}$/;
+    // console.log(p.test("176303840575"));
+    // let p=/^\d{6}[1-2]\d{3}[0-1]\d{1}[0-3]\d{4}[\d|X]$/; /**身份证号验证**/
+    // console.log(p.test("620522199703170914"))
+    // let p=/^[1-9]\d*$/;
+    // console.log(p.test("123"));
+    // console.log(p.test("1"));
+    // console.log(p.test("0.12"));
+    // let p=/\w+@\w{2,}\.[a-zA-Z]{2,}$/;/**邮箱选择器必须要有@且@前面必须有内容，.必须在@后面且@与点之间至少两位的内容，在点之后至少存在至少两位的大小写字母*/
+    // console.log(p.test("2833817503@sina.com"));
+    // let q=/(^#[a-fA-F0-9]{6}|^#[a-fA-F0-9]{3})/i /**颜色选择器*/
+    // console.log(q.test("#abc"));
+    // console.log(q.test("#888"));
+    // let reg=/(^#[0-9a-z]{3}$)|(^#[0-9a-z]{6}$)/;
+    // console.log(reg.exec("#555"));
+    // let reg=/a/g;
+    // let str="abcdahcgartf";
+    // while(res=reg.exec(str))
+    // {
+    //     console.log(res);
+    // }
+    // console.log();
+    // console.log(str.match(reg));
+    // let str2="1989-01-01，是你的生日，他的生日是1997-09-07";                                                 /**exec是在字符串中找到符合正则表达式的字符串*/
+    // let reg2=/(?:\d{4})-(\d{2})-(\d{2})/g;
+    // while(res2=reg2.exec(str2))
+    // {
+    //     console.log(res2);
+    // }
+    // console.log(str2.match(reg2));
+    // console.log(str2.replace(reg2,"$1年$2月$3日"));
+    // let reg=/(\d)(\d)\d\2\1/g;/**寻找以中轴线对称的**/
+    // let str="43534 68986 feff 565875";
+    // console.log(str.match(reg));
+    // let str="0adsflsdpofweiyhvck";
+    // let reg=/a\w?/;/**默认是贪婪模式* ？ + {}存在着贪婪模式*/
+    // console.log(reg.exec(str));
+    // let str2="0adsflsdpofweiyhvck";
+    // let reg2=/a\w?\?/;/**使用在其后面添加？号的方式解除贪婪模式进入懒惰模式*/
+    // console.log(reg2.exec(str2));
+    // let string="hello world";
+    // console.log(string.replace("hello","foolish"));
+    // let str="你的生日是：1997-9-8，身高178，体重120kg ,你好肥,你是傻逼吗";
+    // let reg=/[肥|草|习|近|平|肉|欲|傻|逼]/g;
+    // console.log(str.replace(reg,"*"));
+    // let str="   你好，我是某某某  ";
+    // let reg=/^\s+|\s+$/;
+    // console.log(str.replace(reg,""));
+    // let str2="1989-09-08 1949-09-03 1829-02-18 1589-02-07";
+    // let reg2=/(\d{4})-(\d{2})-(\d{2})/g;
+    // console.log(str2.replace(reg2,"$1年$2月$3日"));
+    // let btn=document.getElementById("btn");
+    // btn.onclick= function()
+    // {
+    //     if(confirm("确认关闭吗？"))
+    //     {
+    //         window.close();
+    //     }
+    // }
+    // let str="<div>这里是div<p>里面是段落</p></div>";
+    // let reg=/<\/?[a-zA-Z0-9]+>/g ;/*g进行全局匹配*/
+    // console.log(str.replace(reg, ""));
+    // let form=document.querySelector("#forms");
+    // let submit=document.querySelector("#submit");
+    // form.addEventListener("click",showRadio,true);
+    // submit.onclick=function()
+    // {
+    //     let inputs=document.querySelectorAll("[type=radio]");
+    //     console.log(inputs);
+    //     let index="";
+    //     let value="";
+    //     for(let i=0;i<inputs.length;i++)
+    //     {
+    //         if(inputs[i].checked)
+    //         {
+    //             console.log(inputs[i]);
+    //             index=inputs[i].getAttribute("index");
+    //             value=inputs[i].getAttribute("value");
+    //         }
+    //     }
+    //     console.log(index,value);
+    //         alert(`选中的是第${index}选中的值是${value}`);
+    //
+    // }
+    // function showRadio(e)
+    // {
+    //    let target=e.target; /**事件触发 current 事件绑定*/
+    //    if(target.nodeName="input"&&target.getAttribute("type")=="radio")
+    //    {
+    //
+    //        let index=target.getAttribute("index");
+    //        let value=target.getAttribute("value");
+    //        e.target.checked=true;
+    //        alert(`你所选中的是第${index}个单选框所显示选中的值为：${value}`); /**注*/
+    //    }
+    // }
+   // let select=document.querySelector("#sel");
+   // select.addEventListener("change",showImg,true)
+   // function showImg(e)
+   // {
+   //     document.querySelector("#img").setAttribute("src",e.target.value);
+   // }
+   // let str="abcdefg";
+   // console.log(str.substr(4,str.length-1));
+     //列举在浏览器模型的bom中常用的地对象：window document location navigator history screen
+     // 列举window对象常用的5个方法：alert() confirm() prompt() open() close()
+     // document.querySelector("#btn").onclick =function()
+     // {
+     //     console.log("我执行了");
+     //    let score=prompt("请输入你的分数");
+     //    if(score>90)
+     //    {
+     //        document.write("哇塞，学霸呀");
+     //    }else if(score>80)
+     //    {
+     //        document.write("80.......90");
+     //    }else if(score<80)
+     //    {
+     //        document.write("真差劲")
+     //    }
+     // }
+     /**将script的标签放到body封闭之前会影响其他资源的加载，如果将script标签防范到body封闭之后不会影响页面其他资源的加载。*/
+     /***insertBefore()插入到已有元素的前面*/
+     //document.write与innerHTML的区别：是document.write会使整个浏览器的页面重绘，·innerHTML不是重绘整个页面而是重绘页面的一部分
+    //  let str="我不是一个函数听说我可以造成内存泄漏";
+    // setTimeout(str,1000);
+
+    // let str="asdfssaaasasasasaa";/***/
+    // function calcrepeatletter(str)
+    // {
+    //     let arr=str.split("");
+    //     let json={};
+    //     for(let i=0;i<arr.length;i++)
+    //     {
+    //         if(!json[arr[i]])
+    //         {
+    //             json[arr[i]]=1;
+    //         }else
+    //         {
+    //             json[arr[i]]+=1;
+    //         }
+    //     }
+    //     let maxName="";
+    //     let maxNum="";
+    //     for( item in json)
+    //     {
+    //         if(json[item]>maxNum)
+    //         {
+    //             maxName=item;
+    //             maxNum=json[item];
+    //         }
+    //     }
+    //     return  maxName+","+maxNum;
+    // }
+    // console.log(calcrepeatletter(str));
+    //ie与标准浏览下的兼容写法
+    // let ev=ev||window.event(ie)  /**事件对象的兼容写法*/
+    // let target=ev.srcElement(ie)||ev.target;
+    // document.body.clientWidth ||document.documentElement.clientWidth(ie);
+    // function getStyle(selector,attr)
+    //  {
+    //      let dom=document.querySelector(selector);
+    //      if(dom.currentStyle)
+    //      {
+    //          return dom.currentStyle(attr);
+    //      }else
+    //      {
+    //          return getComputedStyle(dom)[attr];
+    //      }
+    //  }
+    //  console.log(getStyle("#box","width"));
+    //  // console.log(document.querySelector("#div").style.width);
+    //  console.log(getStyle("#box","height"));
+    //  console.log(getStyle("#box","background"));
+    /****
+     * 获取元素的样式的总结：
+     * style:主要的用途是用来进行元素样式的取值只能获取到内联的样式。
+     * currentStyle:是正对ie浏览器来进行样式的获取。
+     * getComputedStyle：除了ie所有的浏览器都支持，其写法时getComputedStyle(ele,false)[attr];其中false的作用是
+     * 由于getComputedStyle可以获取伪元素的样式，如果要对伪元素使用的话要将false取反注意这里获取的width和height不包含padding和border。
+     * getAttribute:可以获取元素的内联样式，并且可以获取自定义属性。
+     */
+    /**
+     * window.load:必须要等到页面中的所有内容都加载完毕后(包括图片等其他的资源)才能执行。
+     * $(document).ready():只需要等到页面的Dom结构执行完之后就会执行。
+     */
+    // let str="12345678";
+    // let newStr=""
+    // let arr=str.split("");
+    // for(let i=0;i<arr.length;i++)
+    // {
+    //     if(i==0)
+    //     {
+    //         newStr=arr[i];
+    //     }else
+    //     {
+    //         if((i+1)%3==0)
+    //         {
+    //             newStr=newStr+","
+    //             newStr+=arr[i];
+    //         }else
+    //         {
+    //             newStr+=arr[i]
+    //         }
+    //     }
+    // }
+    // console.log(newStr);
+    // let arr=[];
+    // do
+    // {
+    //     let number=Math.ceil(Math.random()*10);
+    //     arr.push(number);
+    //     var newArr=[...new Set(arr)];
+    // }while(newArr.length<5);
+    // console.log(newArr);
+    // let arrs=[7,7,8,5,4,22,1,2,4,5,3];
+    // function one(arr)/**使用indexOf+for*/
+    // {
+    //     let newArry=[];
+    //     newArry.push(arr[0]);
+    //     for(let i=1;i<arr.length;i++)
+    //     {
+    //         if(newArry.indexOf(arr[i])==-1)
+    //         {
+    //             newArry.push(arr[i]);
+    //         }
+    //     }
+    //     return newArry;
+    // }
+    // console.log(one(arrs))
+    // function two(arr)/***使用sort+for这样会使原数组发生变化*/
+    // {
+    //     arr.sort();
+    //     let newArr=[arr[0],];
+    //     for(let i=0;i<arr.length;i++)
+    //     {
+    //         if(!(newArr[newArr.length-1]==arr[i]))
+    //         {
+    //             newArr.push(arr[i]);
+    //         }
+    //     }
+    //     return newArr;
+    // }
+    // console.log(two(arrs));
+    // function three(arr)/**使用双重for循环*/
+    // {
+    //     let newArr=[];
+    //     for(let i=0;i<arr.length;i++)
+    //     {
+    //         let flag=false;
+    //         for(let j=i+1;j<arr.length;j++)
+    //         {
+    //             if(arr[i]==arr[j])
+    //             {
+    //                 flag=true;
+    //                 continue;
+    //             }
+    //
+    //         }
+    //         if(!flag)
+    //         {
+    //             newArr.push(arr[i]);
+    //         }
+    //     }
+    //     return newArr;
+    // }
+    // console.log(three(arrs));
+    /***/
+    // function factorial(number)/**阶乘函数是通过index是否等于1来进行判断的是否要停止*/
+    // {
+    //     function inner(index)
+    //     {
+    //         if(index==1)
+    //         {
+    //             return 1;
+    //         }
+    //         return index*inner(index-1);
+    //     }
+    //     return inner(number);
+    // }
+    // console.log(factorial(9));
+    // console.log(window.location.search);
+    // console.log(window.location.hash);
+    //window.location.reload();/*进行页面的刷新*/
+    // function stopPropagation(e)
+    // {
+    //      e=e||window.event;
+    //      if(e.stopPropagation)/**标准浏览器的*/
+    //      {
+    //          e.stopPropagation();
+    //      }else
+    //      {
+    //          e.cancelBubble=true;/**ie组织冒泡的*/
+    //      }
+    // }
+    // /**如何使用*/
+    // document.querySelector("#btn").onclick=function(e)
+    // {
+    //     stopPropagation(e);
+    //     /**
+    //      * 其他的相关逻辑
+    //      * */
+    // }
+    /***
+     * javascript中的垃圾回收机制：
+     * 垃圾回收机制：代码执行环境会负责管理代码执行执行过程中的使用内存的情况，在开发是我们就不需要在考虑内存的内存分配问题。
+     * 在javascript的垃圾回收机制比较简单就是找出不再使用的变量，然后释放掉其占用的内存，但是这个过程不是时时的
+     * 因为开销比较大，所以垃圾回收机器会按照固定的时间间隔周期性的执行。
+     * 如果一个对象不在被引用就会被回收，当两个对象互相引用，而不再被第三者引用这这两个相互引用的对象也就会被回收。
+     * 回收的方法：标记清除法(最多)和引用计数法（ie） 详情请看：https://www.cnblogs.com/dolphinX/p/3348468.html
+    //  */
+    // function f1()
+    // {
+    //     var temp=1;
+    //     this.x=3;
+    //     console.log(temp);//1
+    //     console.log(this.x);//3
+    // }
+    // var obj=new f1();
+    // console.log(obj.x);//3
+    // console.log(f1());//1  3 undefined/*注意函数没返回值时返回的是undefined，注意在f1当做是一个函数时里面的this指的是windows.**/
+    var n=0.3,m=0.2,i=0.2,j=0.1;/**注意在js中精度不能确定到0.1存在于值和差值中注意涉及到0.3的运算都出错*/
+    console.log((n-m)==(i-j));
+    console.log(n-m,i-j);
+    console.log((n-m)==0.1);
+    console.log((i-j)==0.1);
+    console.log(3-undefined);
+    /**
+     * js的类型转化之减号
+     * 1、当减号两边都是数值类型时则会执行常规的算数减法操作
+     * 2、但其中的一个操作数位NaN,undefined时返回的是NaN；
+     * 3、如果一个操作数是Boolean，字符串，null则会现在后台调用NUmber方法将其转化为数值，在进行运算。
+     * 4、如果有一个操作数是对象，则调用对象的 valueof() 方法以取得该方法返回后的值，如果得到的值是NaN,则减法的结果就是NaN, 如果对象没有valueOf()方法，则调用其toString()方法并将得到的字符串转为数值。
+     * */
+    /**
+     * js的类型转换加号
+     * 1、当操作数一个是字符串时则另一个操作数会转换为字符串，然后进行字符串的连接操作。
+     * 2、但其中的一个操作数位NaN,undefined时返回的是NaN；
+     * 3、如果一个操作数是Boolean，null则会现在后台调用NUmber方法将其转化为数值，在进行运算。
+     * 4、当加号两边的操作数有一个是对象时，则对象会遵循对象到原始值的转化规则转换为原始值就会按照原始值的规则进行换。
+     *注意：加法的运算顺序和结合性 1+2+" hello world"=>"3 helo world"
+     * 1+(2+" hello world")=>"12 helo world"
+     */
+</script>
+
+</html>

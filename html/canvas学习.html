@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <canvas id="canvas" width="1000px" height="1000px">
+        你的浏览器不支持canvas，请升级升级浏览器（当浏览器不支持时显示此行文本）
+    </canvas>
+</body>
+<script src="../js/until.js"></script>
+<script>
+    let canvas=document.querySelector("#canvas");
+    canvas.style.background="#f1f1f1";
+    let ctx=canvas.getContext("2d");
+    ctx.beginPath(); //将不同的绘制进行分离。
+    ctx.moveTo(100,100);//设置画笔的起始位置。
+    ctx.lineTo(600,100);//设置线段的终点。
+    ctx.lineTo(300,150);
+    ctx.fillStyle="#f00";//设置线段颜色。
+    ctx.fill();
+    ctx.closePath();//闭合路径
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.fillStyle="green";
+    // ctx.fill();
+    // ctx.rect(200,200,200,150);//绘制一个矩形
+    ctx.fillRect(200,200,200,150);
+    // ctx.strokeStyle="skyblue";// 设置线的颜色
+    // ctx.closePath();
+    // ctx.stroke();
+    //ctx.clearRect(200,200,200,150);
+
+    ctx.beginPath();
+    ctx.arc(600,300,100,getRad(0),getRad(360),true);
+    ctx.fillStyle="orange";
+    ctx.fill();
+    ctx.closePath();
+    ctx.stroke()
+
+    ctx.beginPath();
+    ctx.font="20px '微软雅黑'";
+    ctx.fillStyle="purple";
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
+    ctx.fillText("我是一段文字",700,100)
+
+    let img=new Image();
+    img.src="../image/李呈媛.jpeg";
+    let alittle=new Image();
+    alittle.src="../image/little.png";
+    img.onload=function()
+    {
+        ctx.drawImage(this,0,400,350,400);
+        alittle.onload=function()
+        {
+            ctx.drawImage(alittle,0,800,100,100);
+            let dom=document.querySelector("#box");
+            let alittleImg=canvas.toDataURL("image/png",0.9);
+            let lastImg=new Image();
+            lastImg.src=alittleImg;
+            console.log(lastImg);
+            dom.appendChild(lastImg);
+        }
+    }
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.rect(400,500,200,100);
+    ctx.fillStyle="#000";
+    ctx.shadowOffsetX = 10;
+    ctx.shadowOffsetY=20;
+    ctx.shadowColor="rgba(0,0,0,0.5)";
+    ctx.fill();
+    ctx.stroke();
+
+
+
+</script>
+</html>

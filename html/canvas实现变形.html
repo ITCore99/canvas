@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" height="500" width="800"></canvas>
+</body>
+<script src="../js/until.js"></script>
+<script>
+    let canvas=document.querySelector("#canvas");
+    canvas.style.background="#f1f1f1";
+    let ctx=canvas.getContext("2d");
+    ctx.translate(50,50);/*平移画布将画布的原点平移到图形的顶点*/
+    ctx.fillStyle="#f00";
+    ctx.rotate(getRad(30));
+    ctx.scale(1,2);
+    ctx.fillRect(0,0,200,100);
+
+
+
+</script>
+</html>
